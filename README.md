@@ -1,4 +1,4 @@
-## Search GitHub Repository
+## 🔍Search GitHub Repository
 - GitHub API를 사용하여 GitHub Repository 조회하고 리스트를 보여주는 앱
 ## 개발 기간
 - 2022.07.06 ~ 2022.07.09
