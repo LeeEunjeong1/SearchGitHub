@@ -10,7 +10,8 @@ data class GitHubRepository(
     val owner: GitHubOwner,
     val html_url : String,
     val description: String,
-    val stargazers_count: Int
+    val stargazers_count: Int,
+    val language: String
 )
 data class GitHubOwner(
     val avatar_url: String

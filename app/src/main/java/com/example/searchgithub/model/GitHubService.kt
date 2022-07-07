@@ -1,7 +1,6 @@
 package com.example.searchgithub.model
 
-import com.example.searchgithub.DataModel
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
@@ -9,7 +8,7 @@ import retrofit2.http.Query
 interface GitHubService {
     @Headers("Content-Type: application/json",
     "Connection: keep-alive")
-    @GET("/search/users")
+    @GET("/search/repositories")
     fun getGitHubRepository(@Query("q") q: String,
                       @Query("page") page: Int,
                       @Query("per_page") per_page: Int

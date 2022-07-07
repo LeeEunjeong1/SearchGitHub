@@ -1,7 +1,6 @@
-package com.example.searchgithub
+package com.example.searchgithub.model
 
-import com.example.searchgithub.model.GitHubResponse
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Single
 
 interface DataModel{
     fun getGitHubSearch(q:String, page:Int) : Single<GitHubResponse>

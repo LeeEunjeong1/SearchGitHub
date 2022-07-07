@@ -1,9 +1,8 @@
 package com.example.searchgithub.model
 
-import com.example.searchgithub.DataModel
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Single
 
-class DataModelImpl(private val service: GitHubService) : DataModel{
+class DataModelImpl(private val service: GitHubService) : DataModel {
     companion object{
         const val DEFAULT_PER_PAGE = 10
     }
