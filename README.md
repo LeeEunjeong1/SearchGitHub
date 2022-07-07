@@ -5,6 +5,7 @@
 ## 기술스택 & 라이브러리
 - IDE -> Android Studio
 - Language -> Kotlin
+- MVVM Architecture
 - Network -> Retrofit, RxJava
 - Dependency injection -> Koin
 - Android Jetpack(ViewModel, LiveData, RecyclerView)
