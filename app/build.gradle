@@ -72,4 +72,8 @@ dependencies {
     // Koin Unit Test
     testImplementation "io.insert-koin:koin-test:3.1.6"
     testImplementation "io.insert-koin:koin-test-junit4:3.1.6"
+    // test
+    androidTestImplementation("org.mockito:mockito-android:2.24.5")
+    testImplementation 'org.mockito:mockito-inline:2.21.0'
+    testImplementation "com.google.truth:truth:1.0"
 }

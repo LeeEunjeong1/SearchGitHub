@@ -1,19 +1,14 @@
 package com.example.searchgithub.ui
 
 
-import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.AppCompatDrawableManager.preload
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.searchgithub.databinding.ItemGithubRepositoryBinding
-import com.example.searchgithub.model.RepositoryModel
+import com.example.searchgithub.model.response.RepositoryModel
 import com.example.searchgithub.ui.MainActivity.Companion.page
-import kotlin.coroutines.coroutineContext
 
 class MainAdapter: RecyclerView.Adapter<MainAdapter.MainViewHolder>()  {
 
@@ -42,11 +37,7 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.MainViewHolder>()  {
         repositoryList.add(RepositoryModel(avatar_url,full_name,language))
         //   notifyDataSetChanged()
         Log.d("tag",page.toString())
-        if(page==0){
-            notifyItemInserted(page)
-        }else{
-            notifyItemRangeInserted(page*10,(page+1)*10)
-        }
+        notifyItemRangeInserted(page*10,(page+1)*10)
 
     }
 

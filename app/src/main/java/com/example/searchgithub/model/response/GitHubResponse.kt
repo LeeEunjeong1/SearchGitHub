@@ -1,6 +1,7 @@
 package com.example.searchgithub.model
 
-data class GitHubResponse(
+data class GitHubResponse
+    (
     val total_count: Int,
     val items: List<GitHubRepository>
 )

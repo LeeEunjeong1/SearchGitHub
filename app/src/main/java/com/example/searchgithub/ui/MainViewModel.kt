@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.searchgithub.model.DataModel
-import com.example.searchgithub.model.RepositoryModel
+import com.example.searchgithub.model.response.RepositoryModel
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 class  MainViewModel(private  val model: DataModel) : ViewModel() {
@@ -36,7 +36,6 @@ class  MainViewModel(private  val model: DataModel) : ViewModel() {
                                     it.items[i].language,
                                 )
                             )
-
                         }
                         // avatar_url, full_name, language 리스트 생성 후 보내기
                         _getGitHubRepository.postValue(list)
@@ -46,6 +45,7 @@ class  MainViewModel(private  val model: DataModel) : ViewModel() {
                     _isError.postValue(it.message)
                     Log.d("MainViewModel", "response error, message : ${it.message}")
                 })
+
         }catch (e:Exception){
             _isError.postValue(e.message)
         }

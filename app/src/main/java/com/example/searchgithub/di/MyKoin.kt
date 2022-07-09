@@ -2,7 +2,7 @@ package com.example.searchgithub.di
 
 import com.example.searchgithub.model.DataModel
 import com.example.searchgithub.model.DataModelImpl
-import com.example.searchgithub.model.GitHubService
+import com.example.searchgithub.model.service.GitHubService
 import com.example.searchgithub.ui.MainAdapter
 import com.example.searchgithub.ui.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel

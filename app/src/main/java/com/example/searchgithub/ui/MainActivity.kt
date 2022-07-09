@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private fun initBinding(){
         with(binding){
             recyclerView.run{
+                // recyclerview adapter 연결
                 adapter=recyclerviewAdapter
                 itemAnimator = null
                 // rcyclerView 최하단 스크롤 감지
@@ -54,28 +55,27 @@ class MainActivity : AppCompatActivity() {
                     load()
                 }
             }
-            // 입력창
-            edtSearch.setOnEditorActionListener(object : TextView.OnEditorActionListener{
-                override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
-                    imgLogo.visibility = View.GONE
-                    load()
-                    return false
-                }
-
-            })
+            // 입력창 -> actionSearch
+            edtSearch.setOnEditorActionListener { v, actionId, event ->
+                imgLogo.visibility = View.GONE
+                load()
+                false
+            }
         }
     }
 
+    // viewModel의 git repository 가져오는 함수 실행
     private fun searchGitHub(){
         with(viewModel){
             getGitHub(searchWord,page)
         }
-
     }
+    // avatar_url, full_name, language 리스트 받으면 recyclerViewAdapter.setList
     private fun observeData(){
         with(viewModel){
             getDataRepository.observe(this@MainActivity){
                 if(it.isEmpty()){
+                    // 빈 list일 경우
                     binding.progressBar1.visibility=View.GONE
                     binding.progressBar.visibility=View.GONE
                     Toast.makeText(applicationContext,"찾으시는 레포지토리가 없습니다.",Toast.LENGTH_SHORT).show()
@@ -86,20 +86,15 @@ class MainActivity : AppCompatActivity() {
                         val name = RepositoryModel.full_name ?: ""
                         val language = RepositoryModel.language ?: ""
 
-                        if(page==0){
-                            recyclerviewAdapter.setList(avatar,name,language)
-                        }else{
-                            recyclerviewAdapter.moreList(avatar,name,language)
-                        }
+                        recyclerviewAdapter.setList(avatar,name,language)
 
                         binding.progressBar.visibility = View.GONE
                         binding.progressBar1.visibility = View.GONE
                         binding.recyclerView.visibility = View.VISIBLE
                     }
                 }
-
-
             }
+            // error 발생시
             isError.observe(this@MainActivity){
                 binding.progressBar.visibility = View.GONE
                 binding.progressBar1.visibility = View.GONE
@@ -109,10 +104,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
+    // 검색 시 실행되는 함수
     private fun load(){
         recyclerviewAdapter.clearList()
-        page=0
+        page=0 // 새로운 검색어 검색시 page 초기화
         searchWord = binding.edtSearch.text.toString()
         binding.recyclerView.visibility = View.GONE
         binding.progressBar.visibility=View.GONE
@@ -126,7 +121,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object{
-        var page: Int = 0
-        var searchWord: String = ""
+        var page: Int = 0 // 원하는 page
+        var searchWord: String = "" // 검색 단어
     }
 }

@@ -1,4 +1,4 @@
-package com.example.searchgithub.model
+package com.example.searchgithub.model.response
 
 data class RepositoryModel (
     val avatar_url : String?,
