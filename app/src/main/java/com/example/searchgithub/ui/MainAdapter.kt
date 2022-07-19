@@ -1,14 +1,11 @@
 package com.example.searchgithub.ui
 
-
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.searchgithub.databinding.ItemGithubRepositoryBinding
 import com.example.searchgithub.model.response.RepositoryModel
-import com.example.searchgithub.ui.MainActivity.Companion.page
 
 class MainAdapter: RecyclerView.Adapter<MainAdapter.MainViewHolder>()  {
 
@@ -33,13 +30,13 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.MainViewHolder>()  {
         notifyDataSetChanged()
 
     }
-    fun moreList(avatar_url: String, full_name: String, language: String) {
-        repositoryList.add(RepositoryModel(avatar_url,full_name,language))
-        //   notifyDataSetChanged()
-        Log.d("tag",page.toString())
-        notifyItemRangeInserted(page*10,(page+1)*10)
-
-    }
+//    fun moreList(avatar_url: String, full_name: String, language: String) {
+//        repositoryList.add(RepositoryModel(avatar_url,full_name,language))
+//        //   notifyDataSetChanged()
+//        Log.d("tag",page.toString())
+//        notifyItemRangeInserted(page*10,(page+1)*10)
+//
+//    }
 
     class MainViewHolder(private val binding: ItemGithubRepositoryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: RepositoryModel) {

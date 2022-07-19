@@ -26,7 +26,6 @@ class  MainViewModel(private  val model: DataModel) : ViewModel() {
                 .subscribeOn(Schedulers.io()) // [첫번째 스트림 ~ observeOn 호출 전 까지의 스트림]의 쓰레드를 지정
                 .subscribe({
                     it.run {
-                        Log.d("Mainvviewlsize",it.items.size.toString())
                         Log.d( "MainViewModel","$it")
                         for(i:Int in 0 until it.items.size){
                             list.add(

@@ -3,12 +3,8 @@ package com.example.searchgithub.ui
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.KeyEvent
-import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import org.koin.android.ext.android.inject
@@ -36,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                 // recyclerview adapter 연결
                 adapter=recyclerviewAdapter
                 itemAnimator = null
-                // rcyclerView 최하단 스크롤 감지
+                // recyclerView 최하단 스크롤 감지
                 addOnScrollListener(object: RecyclerView.OnScrollListener(){
                     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                         super.onScrolled(recyclerView, dx, dy)
@@ -56,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             // 입력창 -> actionSearch
-            edtSearch.setOnEditorActionListener { v, actionId, event ->
+            edtSearch.setOnEditorActionListener { _, _, _ ->
                 imgLogo.visibility = View.GONE
                 load()
                 false
@@ -64,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // viewModel의 git repository 가져오는 함수 실행
+    // viewModel 의 git repository 가져오는 함수 실행
     private fun searchGitHub(){
         with(viewModel){
             getGitHub(searchWord,page)
@@ -75,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         with(viewModel){
             getDataRepository.observe(this@MainActivity){
                 if(it.isEmpty()){
-                    // 빈 list일 경우
+                    // 빈 list 일 경우
                     binding.progressBar1.visibility=View.GONE
                     binding.progressBar.visibility=View.GONE
                     Toast.makeText(applicationContext,"찾으시는 레포지토리가 없습니다.",Toast.LENGTH_SHORT).show()
