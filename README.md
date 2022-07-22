@@ -27,16 +27,16 @@ https://docs.github.com/en/rest/search#search-repositories
   - resonse  : 응답받는 데이터
   - service
     - GitHubService : API Interface 
-  - DataModel : viewModel에서 dataModel 실행하면 결과값 single로 받음
-  - DataModelImpl : datamodel 구현체
+  - Repository : viewModel에서 repository를 실행하면 결과값 single로 받음
+  - RepositoryImpl : repository를 구현체
 - [ui]
   - MainActivity : 
     - 검색버튼 클릭 시 viewModel getGitHub 함수에 값 전달
     - recyclerview 최하단 감지 시 page값 증가시켜 viewModel getGitHub 함수에 전달
     - api 결과 리스트를 받아 recylcerviewAdapter에 연결
     - api 결과 리스트가 비어 있거나 error 시 Toast창 띄움
-  - MainAdapter : setList 함수에서 repositoryList에 값을 추가
-  - MainViewModel : datamodel을 실행하며 결과값을 받아 Livedata를 이용하여 Activity에 전달
+  - MainAdapter : setList 함수에서 gitHubList에 값을 추가
+  - MainViewModel : repository를 실행하며 결과값을 받아 Livedata를 이용하여 Activity에 전달
 
 
 ## 미리보기
