@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     // avatar_url, full_name, language 리스트 받으면 recyclerViewAdapter.setList
     private fun observeData(){
         with(viewModel){
-            getDataRepository.observe(this@MainActivity){
+            getGitHubData.observe(this@MainActivity){
                 if(it.isEmpty()){
                     // 빈 list 일 경우
                     binding.progressBar1.visibility=View.GONE

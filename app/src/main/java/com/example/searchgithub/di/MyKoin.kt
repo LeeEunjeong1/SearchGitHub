@@ -1,7 +1,7 @@
 package com.example.searchgithub.di
 
-import com.example.searchgithub.model.DataModel
-import com.example.searchgithub.model.DataModelImpl
+import com.example.searchgithub.model.Repository
+import com.example.searchgithub.model.RepositoryImpl
 import com.example.searchgithub.model.service.GitHubService
 import com.example.searchgithub.ui.MainAdapter
 import com.example.searchgithub.ui.MainViewModel
@@ -25,8 +25,8 @@ var apiDevPart = module {
 }
 //생성자에 의해 의존성 주입받는 형태
 var modelPart = module {
-    factory<DataModel> {
-        DataModelImpl(get())
+    factory<Repository> {
+        RepositoryImpl(get())
     }
 }
 var viewModelPart = module{
