@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-val BASE_URL = "https://api.github.com"
+const val BASE_URL = "https://api.github.com"
 
 var apiDevPart = module {
     single<GitHubService>{
