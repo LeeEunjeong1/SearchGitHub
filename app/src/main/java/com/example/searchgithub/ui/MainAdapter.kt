@@ -9,24 +9,24 @@ import com.example.searchgithub.model.response.RepositoryModel
 
 class MainAdapter: RecyclerView.Adapter<MainAdapter.MainViewHolder>()  {
 
-    private var repositoryList = ArrayList<RepositoryModel>()
+    private var gitHubList = ArrayList<RepositoryModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val binding = ItemGithubRepositoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MainViewHolder(binding)
     }
 
-    override fun getItemCount() = repositoryList.size
+    override fun getItemCount() = gitHubList.size
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        (holder as? MainViewHolder)?.onBind(repositoryList[position])
+        (holder as? MainViewHolder)?.onBind(gitHubList[position])
     }
 
     fun  clearList(){
-        repositoryList.clear()
+        gitHubList.clear()
     }
     fun setList(avatar_url: String, full_name: String, language: String) {
-        repositoryList.add(RepositoryModel(avatar_url,full_name,language))
+        gitHubList.add(RepositoryModel(avatar_url,full_name,language))
         notifyDataSetChanged()
 
     }
